@@ -1,0 +1,104 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "A Legacy of Excellence: Maynilad Confers Highest Academic Titles",
+      "content": "On April 2, the Maynilad University Study Center held a historic Conferment Ceremony at the Li Seng Giap Auditorium, where the titles of Professor Emeritus and Distinguished Professor were conferred upon deserving faculty members.",
+      "date": "2025-04-02",
+      "image": "/images/news/conferment.jpg",
+      "slug": "legacy-of-excellence"
+    },
+    {
+      "id": 2,
+      "title": "Accepted applicants for SY 2025-2026",
+      "content": "The list of accepted applicants for SY 2025-2026 may now be viewed below. For inquiries, please email the Maynilad Admissions Office at admissions@maynilad.edu.",
+      "date": "2025-04-15",
+      "image": "/images/news/accepted-applicants.jpg",
+      "slug": "accepted-applicants-2025"
+    },
+    {
+      "id": 3,
+      "title": "Maynilad launches CORE Cebu",
+      "content": "The Maynilad University Study Center launched its first regional executive education hub—Maynilad CORE Cebu—on March 28, 2025, in a milestone event held at the heart of Cebu Business Park.",
+      "date": "2025-03-28",
+      "image": "/images/news/core-cebu.jpg",
+      "slug": "maynilad-launches-core-cebu"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "LA NAVAL DE MANILA PILGRIMAGE",
+      "location": "Sto. Domingo Church",
+      "date": "2025-05-10",
+      "image": "/images/events/la-naval.jpg"
+    },
+    {
+      "id": 2,
+      "title": "OUR LADY OF CAYSASAY PILGRIMAGE",
+      "location": "Taal, Batangas",
+      "date": "2025-05-17",
+      "image": "/images/events/caysasay.jpg"
+    },
+    {
+      "id": 3,
+      "title": "RECOLLECTION & COOKOUT",
+      "location": "Maynilad Center",
+      "date": "2025-05-24",
+      "image": "/images/events/recollection.jpg"
+    },
+    {
+      "id": 4,
+      "title": "BASKETBALL",
+      "location": "PARQAL, Parañaque",
+      "date": "2025-05-28",
+      "image": "/images/events/basketball.jpg"
+    }
+  ],
+  "programs": [
+    {
+      "id": 1,
+      "name": "Bachelor of Science in Computer Science",
+      "description": "A comprehensive program that covers programming, algorithms, data structures, and software engineering principles.",
+      "duration": "4 years",
+      "department": "School of Engineering and Technology"
+    },
+    {
+      "id": 2,
+      "name": "Bachelor of Arts in Philosophy",
+      "description": "A program that explores the fundamental questions of existence, knowledge, values, reason, mind, and language.",
+      "duration": "4 years",
+      "department": "School of Humanities"
+    },
+    {
+      "id": 3,
+      "name": "Master of Business Administration",
+      "description": "An advanced degree program that prepares students for leadership roles in business and management.",
+      "duration": "2 years",
+      "department": "School of Business"
+    }
+  ],
+  "faculty": [
+    {
+      "id": 1,
+      "name": "Dr. Maria Santos",
+      "position": "Dean, School of Engineering and Technology",
+      "education": "Ph.D. in Computer Science, Stanford University",
+      "image": "/images/faculty/maria-santos.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Juan Reyes",
+      "position": "Professor, School of Humanities",
+      "education": "Ph.D. in Philosophy, University of Oxford",
+      "image": "/images/faculty/juan-reyes.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Ana Lim",
+      "position": "Professor, School of Business",
+      "education": "Ph.D. in Business Administration, Harvard University",
+      "image": "/images/faculty/ana-lim.jpg"
+    }
+  ]
+}
