@@ -22,71 +22,108 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Announcement Banner */}
+      {/* May Activities Section */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-8 text-center text-primary">May Activities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+              <div className="mr-4 text-4xl font-bold text-primary">10</div>
+              <div>
+                <h3 className="text-xl font-bold text-primary">LA NAVAL DE MANILA PILGRIMAGE</h3>
+                <p className="text-text-light">Sto. Domingo Church</p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+              <div className="mr-4 text-4xl font-bold text-primary">17</div>
+              <div>
+                <h3 className="text-xl font-bold text-primary">OUR LADY OF CAYSASAY PILGRIMAGE</h3>
+                <p className="text-text-light">Taal, Batangas</p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+              <div className="mr-4 text-4xl font-bold text-primary">24</div>
+              <div>
+                <h3 className="text-xl font-bold text-primary">RECOLLECTION & COOKOUT</h3>
+                <p className="text-text-light">Maynilad Center</p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+              <div className="mr-4 text-4xl font-bold text-primary">28</div>
+              <div>
+                <h3 className="text-xl font-bold text-primary">BASKETBALL</h3>
+                <p className="text-text-light">PARQAL, Parañaque</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Announcement Banner
       <div className="bg-secondary py-4 text-center text-primary font-medium">
         <div className="container-custom">
           Applications are open until May 16, 2025. Click here for more information.
         </div>
-      </div>
+      </div> */}
 
       {/* Featured News Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-primary text-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-8 text-primary">Latest News</h2>
+          <h2 className="text-3xl font-bold mb-8">Latest News</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* News Item 1 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-primary-light rounded-lg overflow-hidden">
               <div className="h-48 relative">
                 <div className="absolute inset-0 bg-gray-200"></div>
                 {/* Image placeholder - replace with actual image */}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">A Legacy of Excellence: Maynilad Confers Highest Academic Titles</h3>
-                <p className="text-text-light mb-4">
+                <h3 className="text-xl font-bold mb-2 text-white">A Legacy of Excellence: Maynilad Confers Highest Academic Titles</h3>
+                <p className="text-white opacity-80 mb-4">
                   On April 2, the Maynilad University Study Center held a historic Conferment Ceremony at the Li Seng Giap Auditorium.
                 </p>
-                <Link href="/news/1" className="text-primary font-medium hover:underline">
+                <Link href="/news/1" className="text-white font-medium hover:underline">
                   Read More
                 </Link>
               </div>
             </div>
 
             {/* News Item 2 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-primary-light rounded-lg overflow-hidden">
               <div className="h-48 relative">
                 <div className="absolute inset-0 bg-gray-200"></div>
                 {/* Image placeholder - replace with actual image */}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Accepted applicants for SY 2025-2026</h3>
-                <p className="text-text-light mb-4">
+                <h3 className="text-xl font-bold mb-2 text-white">Accepted applicants for SY 2025-2026</h3>
+                <p className="text-white opacity-80 mb-4">
                   The list of accepted applicants for SY 2025-2026 may now be viewed below. For inquiries, please email the Admissions Office.
                 </p>
-                <Link href="/news/2" className="text-primary font-medium hover:underline">
+                <Link href="/news/2" className="text-white font-medium hover:underline">
                   Read More
                 </Link>
               </div>
             </div>
 
             {/* News Item 3 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-primary-light rounded-lg overflow-hidden">
               <div className="h-48 relative">
                 <div className="absolute inset-0 bg-gray-200"></div>
                 {/* Image placeholder - replace with actual image */}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Maynilad launches CORE Cebu</h3>
-                <p className="text-text-light mb-4">
+                <h3 className="text-xl font-bold mb-2 text-white">Maynilad launches CORE Cebu</h3>
+                <p className="text-white opacity-80 mb-4">
                   The Maynilad University Study Center launched its first regional executive education hub—Maynilad CORE Cebu—on March 28, 2025.
                 </p>
-                <Link href="/news/3" className="text-primary font-medium hover:underline">
+                <Link href="/news/3" className="text-white font-medium hover:underline">
                   Read More
                 </Link>
               </div>
             </div>
           </div>
           <div className="text-center mt-8">
-            <Link href="/news" className="btn-primary">
+            <Link href="/news" className="btn-secondary">
               See more
             </Link>
           </div>
@@ -115,51 +152,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* May Activities Section */}
-      <section className="section-padding bg-primary text-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-8 text-center">May Activities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-primary-light p-6 rounded-lg flex items-center">
-              <div className="mr-4 text-4xl font-bold">10</div>
-              <div>
-                <h3 className="text-xl font-bold">LA NAVAL DE MANILA PILGRIMAGE</h3>
-                <p>Sto. Domingo Church</p>
-              </div>
-            </div>
-            <div className="bg-primary-light p-6 rounded-lg flex items-center">
-              <div className="mr-4 text-4xl font-bold">17</div>
-              <div>
-                <h3 className="text-xl font-bold">OUR LADY OF CAYSASAY PILGRIMAGE</h3>
-                <p>Taal, Batangas</p>
-              </div>
-            </div>
-            <div className="bg-primary-light p-6 rounded-lg flex items-center">
-              <div className="mr-4 text-4xl font-bold">24</div>
-              <div>
-                <h3 className="text-xl font-bold">RECOLLECTION & COOKOUT</h3>
-                <p>Maynilad Center</p>
-              </div>
-            </div>
-            <div className="bg-primary-light p-6 rounded-lg flex items-center">
-              <div className="mr-4 text-4xl font-bold">28</div>
-              <div>
-                <h3 className="text-xl font-bold">BASKETBALL</h3>
-                <p>PARQAL, Parañaque</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-primary-dark text-white py-12">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">MAYNILAD UNIVERSITY STUDY CENTER</h3>
-              <p className="mb-2">Pearl Drive, Ortigas Center</p>
-              <p className="mb-2">Pasig City 1605, Philippines</p>
+              <h3 className="text-xl font-bold mb-4">MAYNILAD UNIVERSITY CENTER</h3>
+              <p className="mb-2">5th Floor, Pablo Ocampo Sr. Street corner Taft Avenue</p>
+              <p className="mb-2">Manila 1004, Philippines</p>
               <p>(632) 8637-0912 to 26</p>
             </div>
             <div>
@@ -203,7 +203,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8">
-            <p className="text-center">© {new Date().getFullYear()} Maynilad University Study Center. All Rights Reserved.</p>
+            <p className="text-center">© {new Date().getFullYear()} Maynilad University Center. All Rights Reserved.</p>
           </div>
         </div>
       </footer>

@@ -3,8 +3,8 @@ import './globals.css';
 import Navbar from './components/Navbar';
 
 export const metadata: Metadata = {
-  title: 'Maynilad University Study Center',
-  description: 'Official website of Maynilad University Study Center',
+  title: 'Maynilad University Center',
+  description: 'Official website of Maynilad University Center',
 };
 
 export default function RootLayout({
