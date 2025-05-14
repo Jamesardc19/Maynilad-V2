@@ -39,30 +39,42 @@ export default function Navbar() {
     <nav className="bg-white shadow-md">
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+          {/* Logo - not a link */}
+          <div className="flex items-center">
             <div className="text-primary font-bold text-2xl">
               MAYNILAD
             </div>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <Link href="/about" className="text-text hover:text-primary font-medium">
+            <Link href="/" className="text-text hover:text-primary font-medium relative group py-2">
+              Home
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+            <Link href="/about" className="text-text hover:text-primary font-medium relative group py-2">
               About
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/admissions" className="text-text hover:text-primary font-medium">
-              Admissions
+            <Link href="/activities" className="text-text hover:text-primary font-medium relative group py-2">
+              Activities
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/programs" className="text-text hover:text-primary font-medium">
-              Programs
+            <Link href="/formation" className="text-text hover:text-primary font-medium relative group py-2">
+              Formation
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/contact" className="text-text hover:text-primary font-medium">
+            <Link href="/staff" className="text-text hover:text-primary font-medium relative group py-2">
+              Staff
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+            <Link href="/contact" className="text-text hover:text-primary font-medium relative group py-2">
               Contact
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </div>
 
-          {/* Theme Toggle, Search and Mobile Menu Button */}
+          {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             {/* Theme Toggle Button */}
             <button 
@@ -82,13 +94,6 @@ export default function Navbar() {
               )}
             </button>
             
-            {/* Search Button */}
-            <button className="text-text hover:text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-            
             {/* Mobile Menu Button */}
             <button 
               className="md:hidden text-text hover:text-primary"
@@ -102,15 +107,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-primary text-white">
-          <div className="container-custom py-4">
-            <div className="flex justify-between items-center mb-4">
+      {/* Mobile Menu - with transition */}
+      <div className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <div className={`bg-primary text-white h-full w-4/5 max-w-sm transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className="container-custom py-4 h-full overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold">Menu</h2>
               <button 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-white"
+                className="text-white hover:text-secondary transition-colors duration-200"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -118,49 +123,28 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex flex-col space-y-4">
-              <Link href="/about" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/" className="py-3 px-2 hover:bg-primary-dark hover:pl-4 transition-all duration-200 border-b border-primary-dark" onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
+              <Link href="/about" className="py-3 px-2 hover:bg-primary-dark hover:pl-4 transition-all duration-200 border-b border-primary-dark" onClick={() => setIsMenuOpen(false)}>
                 About
               </Link>
-              <Link href="/admissions" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Admissions
+              <Link href="/activities" className="py-3 px-2 hover:bg-primary-dark hover:pl-4 transition-all duration-200 border-b border-primary-dark" onClick={() => setIsMenuOpen(false)}>
+                Activities
               </Link>
-              <Link href="/programs" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Programs
+              <Link href="/formation" className="py-3 px-2 hover:bg-primary-dark hover:pl-4 transition-all duration-200 border-b border-primary-dark" onClick={() => setIsMenuOpen(false)}>
+                Formation
               </Link>
-              <Link href="/scholarships" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Scholarships & Grants
+              <Link href="/staff" className="py-3 px-2 hover:bg-primary-dark hover:pl-4 transition-all duration-200 border-b border-primary-dark" onClick={() => setIsMenuOpen(false)}>
+                Staff
               </Link>
-              <Link href="/schools" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Schools/College
-              </Link>
-              <Link href="/centers" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Centers
-              </Link>
-              <Link href="/international" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                International
-              </Link>
-              <Link href="/research" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Research
-              </Link>
-              <Link href="/faculty" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Faculty
-              </Link>
-              <Link href="/news" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                News & Events
-              </Link>
-              <Link href="/give" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Give
-              </Link>
-              <Link href="/jobs" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
-                Jobs
-              </Link>
-              <Link href="/contact" className="py-2 hover:text-secondary" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/contact" className="py-3 px-2 hover:bg-primary-dark hover:pl-4 transition-all duration-200 border-b border-primary-dark" onClick={() => setIsMenuOpen(false)}>
                 Contact
               </Link>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
