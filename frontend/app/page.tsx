@@ -66,10 +66,10 @@ export default function Home() {
         </div>
       </div> */}
 
-      {/* Featured News Section */}
+      {/* Featured Activities Section */}
       <section className="section-padding bg-primary text-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-8">Latest News</h2>
+          <h2 className="text-3xl font-bold mb-8">Latest Activities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* News Item 1 */}
             <div className="bg-primary-light rounded-lg overflow-hidden">
@@ -78,11 +78,11 @@ export default function Home() {
                 {/* Image placeholder - replace with actual image */}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white">A Legacy of Excellence: Maynilad Confers Highest Academic Titles</h3>
+                <h3 className="text-xl font-bold mb-2 text-white">Academic Excellence Awards Ceremony</h3>
                 <p className="text-white opacity-80 mb-4">
-                  On April 2, the Maynilad University Study Center held a historic Conferment Ceremony at the Li Seng Giap Auditorium.
+                  On April 2, the Maynilad University Study Center celebrated student achievements at the annual Academic Excellence Awards.
                 </p>
-                <Link href="/news/1" className="text-white font-medium hover:underline">
+                <Link href="/activities" className="text-white font-medium hover:underline">
                   Read More
                 </Link>
               </div>
@@ -95,11 +95,11 @@ export default function Home() {
                 {/* Image placeholder - replace with actual image */}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white">Accepted applicants for SY 2025-2026</h3>
+                <h3 className="text-xl font-bold mb-2 text-white">Student Leadership Summit 2025</h3>
                 <p className="text-white opacity-80 mb-4">
-                  The list of accepted applicants for SY 2025-2026 may now be viewed below. For inquiries, please email the Admissions Office.
+                  Our annual Student Leadership Summit brought together student leaders for workshops, seminars, and team-building activities.
                 </p>
-                <Link href="/news/2" className="text-white font-medium hover:underline">
+                <Link href="/activities" className="text-white font-medium hover:underline">
                   Read More
                 </Link>
               </div>
@@ -112,18 +112,18 @@ export default function Home() {
                 {/* Image placeholder - replace with actual image */}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white">Maynilad launches CORE Cebu</h3>
+                <h3 className="text-xl font-bold mb-2 text-white">Cultural Festival Week</h3>
                 <p className="text-white opacity-80 mb-4">
-                  The Maynilad University Study Center launched its first regional executive education hub—Maynilad CORE Cebu—on March 28, 2025.
+                  Our annual Cultural Festival Week celebrated diversity through music, dance, art exhibitions, and culinary showcases from different cultures.
                 </p>
-                <Link href="/news/3" className="text-white font-medium hover:underline">
+                <Link href="/activities" className="text-white font-medium hover:underline">
                   Read More
                 </Link>
               </div>
             </div>
           </div>
           <div className="text-center mt-8">
-            <Link href="/news" className="btn-secondary">
+            <Link href="/activities" className="btn-secondary">
               See more
             </Link>
           </div>
