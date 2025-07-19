@@ -6,6 +6,9 @@ import Footer from './components/Footer';
 export const metadata: Metadata = {
   title: 'Maynilad University Center',
   description: 'Official website of Maynilad University Center',
+  icons: {
+    icon: '/images/Maynilad Logo.png'
+  }
 };
 
 export default function RootLayout({

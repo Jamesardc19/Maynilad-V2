@@ -6,8 +6,8 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="bg-primary text-white py-20">
         <div className="container-custom">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-lg max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 tracking-wide">Contact Us</h1>
+          <p className="text-lg max-w-3xl font-body">
             We're here to help. Reach out to us with any questions or inquiries.
           </p>
         </div>
@@ -19,7 +19,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-8">Get in Touch</h2>
+              <h2 className="text-3xl font-heading font-bold text-primary mb-8 tracking-wide">Get in Touch</h2>
               
               <div className="space-y-8">
                 <div className="flex items-start">
@@ -30,9 +30,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-primary mb-1">Address</h3>
-                    <p className="text-text-light">5th Floor, Pablo Ocampo Sr. Street corner Taft Avenue</p>
-                    <p className="text-text-light">Manila 1004, Philippines</p>
+                    <h3 className="text-xl font-heading font-bold text-primary mb-1 tracking-wide">Address</h3>
+                    <p className="text-text-light font-body">5th Floor, Pablo Ocampo Sr. Street corner Taft Avenue</p>
+                    <p className="text-text-light font-body">Manila 1004, Philippines</p>
                   </div>
                 </div>
                 
@@ -43,8 +43,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-primary mb-1">Phone</h3>
-                    <p className="text-text-light">(632) 8637-0912 to 26</p>
+                    <h3 className="text-xl font-heading font-bold text-primary mb-1 tracking-wide">Phone</h3>
+                    <p className="text-text-light font-body">(632) 8637-0912 to 26</p>
                   </div>
                 </div>
                 
@@ -55,8 +55,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-primary mb-1">Email</h3>
-                    <p className="text-text-light">info@maynilad.edu</p>
+                    <h3 className="text-xl font-heading font-bold text-primary mb-1 tracking-wide">Email</h3>
+                    <p className="text-text-light font-body">info@maynilad.edu</p>
                   </div>
                 </div>
                 
@@ -67,10 +67,10 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-primary mb-1">Office Hours</h3>
-                    <p className="text-text-light">Monday - Friday: 8:00 AM - 5:00 PM</p>
-                    <p className="text-text-light">Saturday: 8:00 AM - 12:00 PM</p>
-                    <p className="text-text-light">Sunday: Closed</p>
+                    <h3 className="text-xl font-heading font-bold text-primary mb-1 tracking-wide">Office Hours</h3>
+                    <p className="text-text-light font-body">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p className="text-text-light font-body">Saturday: 8:00 AM - 12:00 PM</p>
+                    <p className="text-text-light font-body">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -104,12 +104,12 @@ export default function ContactPage() {
             
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-8">Send Us a Message</h2>
+              <h2 className="text-3xl font-heading font-bold text-primary mb-8 tracking-wide">Send Us a Message</h2>
               
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-text mb-1">First Name</label>
+                    <label htmlFor="firstName" className="block text-sm font-body font-medium text-text mb-1">First Name</label>
                     <input
                       type="text"
                       id="firstName"
@@ -118,7 +118,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-text mb-1">Last Name</label>
+                    <label htmlFor="lastName" className="block text-sm font-body font-medium text-text mb-1">Last Name</label>
                     <input
                       type="text"
                       id="lastName"
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-text mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-body font-medium text-text mb-1">Email Address</label>
                   <input
                     type="email"
                     id="email"
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-text mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-body font-medium text-text mb-1">Phone Number</label>
                   <input
                     type="tel"
                     id="phone"
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-text mb-1">Subject</label>
+                  <label htmlFor="subject" className="block text-sm font-body font-medium text-text mb-1">Subject</label>
                   <input
                     type="text"
                     id="subject"
@@ -159,7 +159,7 @@ export default function ContactPage() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-text mb-1">Message</label>
+                  <label htmlFor="message" className="block text-sm font-body font-medium text-text mb-1">Message</label>
                   <textarea
                     id="message"
                     rows={5}
@@ -182,7 +182,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="py-16 bg-background-dark">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-primary mb-8">Find Us</h2>
+          <h2 className="text-3xl font-heading font-bold text-primary mb-8 tracking-wide">Find Us</h2>
           
           <div className="h-96 rounded-lg overflow-hidden">
             {/* Google Maps Embed */}

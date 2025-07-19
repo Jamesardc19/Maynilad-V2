@@ -6,18 +6,15 @@ export default function Home() {
     <main>
       {/* Hero Section */}
       <section className="bg-primary text-white relative h-[80vh] flex items-center">
-        <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+        <div className="absolute inset-0 bg-primary-dark opacity-40 z-10"></div>
         <div className="container-custom relative z-20">
           <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 tracking-wide">
               Where Greatness in the Ordinary begins
             </h1>
-            <p className="text-lg md:text-xl mb-8">
-              Maynilad University Study Center offers academic excellence and holistic formation
+            <p className="text-lg md:text-xl mb-8 font-body">
+              A study center for university men committed to academic excellence, leadership, and a life rooted in the Christian faith.
             </p>
-            <Link href="/apply" className="btn-secondary">
-              Apply Now
-            </Link>
           </div>
         </div>
       </section>
@@ -25,130 +22,109 @@ export default function Home() {
       {/* May Activities Section */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-8 text-center text-primary">May Activities</h2>
+          <h2 className="text-3xl font-heading font-bold mb-8 text-center text-primary tracking-wide">July Activities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
               <div className="mr-4 text-4xl font-bold text-primary">10</div>
               <div>
-                <h3 className="text-xl font-bold text-primary">LA NAVAL DE MANILA PILGRIMAGE</h3>
-                <p className="text-text-light">Sto. Domingo Church</p>
+                <h3 className="text-xl font-heading font-bold text-primary tracking-wide">LA NAVAL DE MANILA PILGRIMAGE</h3>
+                <p className="font-body">Sto. Domingo Church</p>
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
               <div className="mr-4 text-4xl font-bold text-primary">17</div>
               <div>
-                <h3 className="text-xl font-bold text-primary">OUR LADY OF CAYSASAY PILGRIMAGE</h3>
-                <p className="text-text-light">Taal, Batangas</p>
+                <h3 className="text-xl font-heading font-bold text-primary tracking-wide">OUR LADY OF CAYSASAY PILGRIMAGE</h3>
+                <p className="font-body">Taal, Batangas</p>
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
               <div className="mr-4 text-4xl font-bold text-primary">24</div>
               <div>
-                <h3 className="text-xl font-bold text-primary">RECOLLECTION & COOKOUT</h3>
-                <p className="text-text-light">Maynilad Center</p>
+                <h3 className="text-xl font-heading font-bold text-primary tracking-wide">RECOLLECTION & COOKOUT</h3>
+                <p className="font-body">Maynilad Center</p>
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
               <div className="mr-4 text-4xl font-bold text-primary">28</div>
               <div>
-                <h3 className="text-xl font-bold text-primary">BASKETBALL</h3>
-                <p className="text-text-light">PARQAL, Parañaque</p>
+                <h3 className="text-xl font-heading font-bold text-primary tracking-wide">BASKETBALL</h3>
+                <p className="font-body">PARQAL, Parañaque</p>
               </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Announcement Banner
-      <div className="bg-secondary py-4 text-center text-primary font-medium">
+      {/* Programs and Activities Section */}
+      <section className="py-16 bg-primary">
         <div className="container-custom">
-          Applications are open until May 16, 2025. Click here for more information.
-        </div>
-      </div> */}
-
-      {/* Featured Activities Section */}
-      <section className="section-padding bg-primary text-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-8">Latest Activities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* News Item 1 */}
-            <div className="bg-primary-light rounded-lg overflow-hidden">
-              <div className="h-48 relative">
-                <div className="absolute inset-0 bg-gray-200"></div>
-                {/* Image placeholder - replace with actual image */}
+          <h2 className="text-3xl font-heading font-bold mb-8 text-center text-white tracking-wide">Programs and Activities</h2>
+          <p className="text-lg font-body max-w-4xl mx-auto mb-12 text-center text-white">
+            Our holistic program is designed to develop aspiring leaders equipped for professional excellence and meaningful service.
+            Through leadership seminars, academic development, spiritual formation, coaching, and mentoring, students are
+            empowered to grow in virtue and responsibility.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="text-center">
+              <div className="bg-white p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 14h.01M12 19h.01M20 14h.01M12 14h.01" />
+                </svg>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white">Academic Excellence Awards Ceremony</h3>
-                <p className="text-white opacity-80 mb-4">
-                  On April 2, the Maynilad University Study Center celebrated student achievements at the annual Academic Excellence Awards.
-                </p>
-                <Link href="/activities" className="text-white font-medium hover:underline">
-                  Read More
-                </Link>
-              </div>
+              <h3 className="text-xl font-heading font-bold text-white tracking-wide">Leadership & Academic Development</h3>
             </div>
-
-            {/* News Item 2 */}
-            <div className="bg-primary-light rounded-lg overflow-hidden">
-              <div className="h-48 relative">
-                <div className="absolute inset-0 bg-gray-200"></div>
-                {/* Image placeholder - replace with actual image */}
+            
+            <div className="text-center">
+              <div className="bg-white p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white">Student Leadership Summit 2025</h3>
-                <p className="text-white opacity-80 mb-4">
-                  Our annual Student Leadership Summit brought together student leaders for workshops, seminars, and team-building activities.
-                </p>
-                <Link href="/activities" className="text-white font-medium hover:underline">
-                  Read More
-                </Link>
-              </div>
+              <h3 className="text-xl font-heading font-bold text-white tracking-wide">Cultural and Outdoors</h3>
             </div>
-
-            {/* News Item 3 */}
-            <div className="bg-primary-light rounded-lg overflow-hidden">
-              <div className="h-48 relative">
-                <div className="absolute inset-0 bg-gray-200"></div>
-                {/* Image placeholder - replace with actual image */}
+            
+            <div className="text-center">
+              <div className="bg-white p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white">Cultural Festival Week</h3>
-                <p className="text-white opacity-80 mb-4">
-                  Our annual Cultural Festival Week celebrated diversity through music, dance, art exhibitions, and culinary showcases from different cultures.
-                </p>
-                <Link href="/activities" className="text-white font-medium hover:underline">
-                  Read More
-                </Link>
-              </div>
+              <h3 className="text-xl font-heading font-bold text-white tracking-wide">Spiritual Formation</h3>
             </div>
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/activities" className="btn-secondary">
-              See more
-            </Link>
+            
+            <div className="text-center">
+              <div className="bg-white p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-heading font-bold text-white tracking-wide">Community Outreach</h3>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Campus Life Section */}
-      <section className="section-padding bg-background-dark">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="h-80 relative rounded-lg overflow-hidden">
-              <div className="absolute inset-0 bg-gray-300"></div>
-              {/* Image placeholder - replace with actual image */}
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end p-8">
-                <h3 className="text-white text-2xl font-bold">Campus Life</h3>
-              </div>
-            </div>
-            <div className="h-80 relative rounded-lg overflow-hidden">
-              <div className="absolute inset-0 bg-gray-300"></div>
-              {/* Image placeholder - replace with actual image */}
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end p-8">
-                <h3 className="text-white text-2xl font-bold">Book a Tour</h3>
-              </div>
-            </div>
+      {/* Call to Action Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl font-heading font-bold mb-6 text-primary tracking-wide">Take the first step— join a community of<br />driven young men committed to excellence.</h2>
+          
+          <div className="w-48 h-48 mx-auto my-8 border-4 border-primary p-2">
+            <img 
+              src="/images/Maynilad QR.jpeg" 
+              alt="Maynilad QR Code" 
+              className="w-full h-full object-cover"
+            />
           </div>
+          
+          <p className="text-lg font-body max-w-3xl mx-auto mb-8 text-text">
+            Are you ready to challenge yourself academically, morally, and spiritually? Join Maynilad University Center by scanning
+            the QR code and embark on a journey toward becoming a leader who makes a meaningful impact.
+          </p>
         </div>
       </section>
     </main>

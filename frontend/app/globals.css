@@ -1,32 +1,64 @@
 /* This is a Tailwind CSS file - @tailwind directives are processed during build */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* postcss-ignore-next-line */
 @tailwind base;
+/* postcss-ignore-next-line */
 @tailwind components;
+/* postcss-ignore-next-line */
 @tailwind utilities;
+
+/* Base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+body {
+  font-family: var(--font-body);
+}
 
 :root {
   --primary-color: #0F3C3E;
   --primary-light: #1A5658;
   --primary-dark: #092728;
+  --primary-darker: #051516;
   --secondary-color: #ffffff;
   --background-color: #FFFFFF;
   --background-dark: #F5F5F5;
-  --text-color: #333333;
-  --text-light: #666666;
+  --background-green: #E8F0F0;
+  --text-color: #0F3C3E;
+  --text-light: #15494B;
   
   /* Transition for smooth theme switching */
   --transition-speed: 0.3s;
+  
+  /* Override any black backgrounds with our green theme */
+  --black-override: var(--primary-darker);
+}
+
+/* Override black backgrounds */
+body {
+  color-scheme: light;
+}
+
+/* Force all black backgrounds to use our green theme */
+.bg-black {
+  background-color: var(--primary-darker) !important;
 }
 
 /* Dark theme variables */
 .dark-theme {
-  --primary-color: #1A5658;
-  --primary-light: #0F3C3E;
-  --primary-dark: #0F3C3E;
-  --secondary-color: #F2C94C;
-  --background-color: #121212;
-  --background-dark: #1E1E1E;
-  --text-color: #E0E0E0;
-  --text-light: #A0A0A0;
+  --primary-color: #FFFFFF;
+  --primary-light: #F5F5F5;
+  --primary-dark: #E8F0F0;
+  --primary-darker: #D0E0E0;
+  --secondary-color: #0F3C3E;
+  --background-color: #FFFFFF;
+  --background-dark: #F5F5F5;
+  --background-green: #E8F0F0;
+  --text-color: #0F3C3E;
+  --text-light: #1A5658;
 }
 
 body {
@@ -35,21 +67,70 @@ body {
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-light transition-colors;
-  }
-  
-  .btn-secondary {
-    @apply bg-white text-primary px-6 py-2 rounded-md hover:bg-opacity-50 transition-colors;
-  }
-  
+/* Component styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--background-green);
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
   .section-padding {
-    @apply py-12 md:py-16 lg:py-20;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -97,25 +178,209 @@ body {
   color: var(--text-light);
 }
 
-/* Button overrides */
+/* Dark theme button overrides */
 .dark-theme .btn-primary {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: #0F3C3E;
+  color: #FFFFFF;
+}
+
+.dark-theme .btn-primary:hover {
+  background-color: #1A5658;
+  color: #FFFFFF;
 }
 
 .dark-theme .btn-secondary {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: #FFFFFF;
+  color: #0F3C3E;
+  border: 2px solid #0F3C3E;
+}
+
+.dark-theme .btn-secondary:hover {
+  background-color: #E8F0F0;
+  color: #0F3C3E;
 }
 
 /* Shadow overrides */
-.dark-theme .shadow-md {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+.dark-theme .shadow-md,
+.dark-theme .shadow-lg {
+  box-shadow: 0 4px 6px -1px rgba(26, 86, 88, 0.2), 0 2px 4px -1px rgba(26, 86, 88, 0.1);
+}
+
+/* Dark mode color inversions */
+/* General background inversions */
+.dark-theme .bg-primary {
+  background-color: #FFFFFF;
+}
+
+.dark-theme .bg-primary-dark {
+  background-color: #F5F5F5;
+}
+
+.dark-theme .bg-white {
+  background-color: #0F3C3E;
+}
+
+.dark-theme .bg-background {
+  background-color: #0F3C3E;
+}
+
+.dark-theme .bg-background-dark {
+  background-color: #1A5658;
+}
+
+.dark-theme .bg-background-green {
+  background-color: #FFFFFF;
+}
+
+/* Hero section specific */
+.dark-theme section.bg-primary {
+  background-color: #FFFFFF;
+}
+
+.dark-theme section.bg-primary .absolute.bg-primary-dark {
+  background-color: #E8F0F0;
+  opacity: 0.6;
+}
+
+/* Activity cards */
+.dark-theme .bg-white.rounded-lg,
+.dark-theme .dark-card {
+  background-color: #ffffff;
+  color: #0F3C3E;
+}
+
+.dark-theme .bg-white.rounded-lg .text-primary,
+.dark-theme .dark-card .text-primary {
+  color: #0F3C3E;
+}
+
+.dark-theme .bg-white.rounded-lg .text-text-light,
+.dark-theme .dark-card .text-text-light {
+  color: #E8F0F0;
+}
+
+.dark-theme .text-text {
+  color: #FFFFFF;
+}
+
+.dark-theme .dark-card ul li {
+  color: #0F3C3E;
+}
+
+/* Footer */
+.dark-theme footer {
+  background-color: #0F3C3E;
+  color: #FFFFFF;
+}
+
+/* Text color inversions */
+.dark-theme .text-white {
+  color: #0F3C3E;
+}
+
+.dark-theme .text-primary {
+  color: #FFFFFF;
+}
+
+.dark-theme .text-text {
+  color: #FFFFFF;
+}
+
+.dark-theme .text-text-light {
+  color: #E8F0F0;
 }
 
 /* Navbar specific */
-.dark-theme nav.bg-white {
-  background-color: var(--primary-dark);
+.dark-theme .navbar-link-active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(15, 60, 62, 0.2);
+}
+
+.dark-theme .theme-toggle-btn:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  background-color: #1A5658;
+}
+
+/* Sidebar close button */
+.close-sidebar-btn {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.close-sidebar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.dark-theme .close-sidebar-btn {
+  color: #0F3C3E;
+  background-color: rgba(15, 60, 62, 0.1);
+}
+
+.dark-theme .close-sidebar-btn:hover {
+  background-color: rgba(15, 60, 62, 0.2);
+}
+
+/* Dark mode header */
+.dark-theme .dark-mode-header {
+  background-color: #0F3C3E;
+  box-shadow: 0 4px 6px -1px rgba(15, 60, 62, 0.1), 0 2px 4px -1px rgba(15, 60, 62, 0.06);
+}
+
+.dark-theme .dark-mode-header .text-primary {
+  color: #FFFFFF;
+}
+
+.dark-theme .dark-mode-header .text-text {
+  color: #E8F0F0;
+}
+
+.dark-theme .dark-mode-header .hover\:text-primary:hover {
+  color: #FFFFFF;
+}
+
+.dark-theme .dark-mode-header .bg-primary {
+  background-color: #FFFFFF;
+}
+
+/* Dark mode mobile sidebar */
+.dark-theme .mobile-sidebar {
+  background: linear-gradient(to bottom right, #FFFFFF, #E8F0F0);
+  color: #0F3C3E;
+}
+
+.dark-theme .mobile-sidebar h2 {
+  color: #0F3C3E;
+}
+
+.dark-theme .mobile-sidebar a {
+  color: #0F3C3E;
+}
+
+.dark-theme .mobile-sidebar a:hover {
+  background-color: #D0E0E0;
+}
+
+.dark-theme .mobile-sidebar .text-white {
+  color: #0F3C3E;
+}
+
+.dark-theme .mobile-sidebar button.hover\:bg-primary-light:hover {
+  background-color: #D0E0E0;
+}
+
+.dark-theme .mobile-sidebar .bg-primary-accent {
+  background-color: #0F3C3E;
 }
 
 /* Footer specific */
