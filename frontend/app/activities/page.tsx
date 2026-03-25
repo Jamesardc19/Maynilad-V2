@@ -36,7 +36,7 @@ export default function Activities() {
             </div>
           </div>
         </section>
-        
+
         <section>
           <h2 className="text-2xl font-semibold font-bold text-primary mb-8 tracking-wide">Upcoming Events</h2>
           <div className="space-y-4">

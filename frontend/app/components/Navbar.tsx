@@ -4,222 +4,205 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/activities', label: 'Activities' },
+  { href: '/formation', label: 'Formation' },
+  { href: '/staff', label: 'Staff' },
+  { href: '/contact', label: 'Contact' },
+];
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
-  // Toggle theme function
-  const toggleTheme = () => {
-    const newThemeMode = !isDarkMode;
-    setIsDarkMode(newThemeMode);
-    
-    // Apply theme to document
-    if (newThemeMode) {
-      document.documentElement.classList.add('dark-theme');
-    } else {
-      document.documentElement.classList.remove('dark-theme');
-    }
-    
-    // Save preference to localStorage
-    localStorage.setItem('darkMode', newThemeMode ? 'true' : 'false');
-  };
-  
-  // Initialize theme from localStorage on component mount
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('darkMode');
-    const prefersDark = savedTheme === 'true';
-    setIsDarkMode(prefersDark);
-    
-    if (prefersDark) {
+    if (savedTheme === 'true') {
+      setIsDarkMode(true);
       document.documentElement.classList.add('dark-theme');
     }
   }, []);
 
+  const toggleTheme = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    document.documentElement.classList.toggle('dark-theme', newMode);
+    localStorage.setItem('darkMode', newMode ? 'true' : 'false');
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
+
   return (
-    <nav className="bg-white shadow-md dark-mode-header">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'navbar-scrolled py-3'
+          : 'navbar-transparent py-5'
+      }`}
+    >
       <div className="container-custom">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo with text */}
-          <div className="flex items-center">
-            <div className="flex items-center gap-3">
-              <Image 
-                src="/images/Maynilad Logo.png" 
-                alt="Maynilad Logo" 
-                width={40} 
-                height={40} 
-                className="object-contain"
-              />
-              <div className="text-primary font-heading font-bold text-2xl tracking-wide">
-                MAYNILAD
-              </div>
-            </div>
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/images/Maynilad Logo.png"
+              alt="Maynilad Logo"
+              width={38}
+              height={38}
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <span
+              className={`nav-logo-text font-heading font-bold text-xl tracking-wide transition-colors duration-500 ${
+                isScrolled ? 'text-primary' : 'text-white'
+              }`}
+            >
+              MAYNILAD
+            </span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link font-body text-sm font-medium tracking-wide uppercase relative py-2 transition-colors duration-300 ${
+                  isScrolled
+                    ? 'text-text-secondary hover:text-primary'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            <Link href="/" className="text-text hover:text-primary font-body font-medium relative group py-2">
-              Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/about" className="text-text hover:text-primary font-body font-medium relative group py-2">
-              About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/activities" className="text-text hover:text-primary font-body font-medium relative group py-2">
-              Activities
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/formation" className="text-text hover:text-primary font-body font-medium relative group py-2">
-              Formation
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/staff" className="text-text hover:text-primary font-body font-medium relative group py-2">
-              Staff
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/contact" className="text-text hover:text-primary font-body font-medium relative group py-2">
-              Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          </div>
-
-          {/* Theme Toggle and Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            {/* Theme Toggle Button */}
-            <button 
-              className="theme-toggle-btn text-text hover:text-primary flex items-center p-2 rounded-full hover:bg-background-green hover:shadow-md transition-all duration-200"
+          {/* Right Actions */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle */}
+            <button
               onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all duration-300 ${
+                isScrolled
+                  ? 'text-text-secondary hover:text-primary hover:bg-surface-muted'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
               aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDarkMode ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
             </button>
-            
+
             {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-text hover:text-primary"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            <button
+              className={`lg:hidden p-2 rounded-md transition-colors duration-300 ${
+                isScrolled
+                  ? 'text-text-primary hover:bg-surface-muted'
+                  : 'text-white hover:bg-white/10'
+              }`}
+              onClick={() => setIsMenuOpen(true)}
+              aria-label="Open menu"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu - with elegant transition */}
-      <div className={`md:hidden fixed inset-0 bg-primary bg-opacity-30 backdrop-blur-sm z-50 transition-all duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <div 
-          className={`mobile-sidebar bg-gradient-to-br from-primary to-primary-dark text-text-white h-full w-4/5 max-w-sm transform transition-all duration-500 ease-in-out shadow-2xl ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
-        >
-          <div className="py-8 px-6 h-full overflow-y-auto flex flex-col">
-            {/* Logo and close button */}
-            <div className="flex justify-between items-center mb-10">
-              <div className="flex items-center gap-3">
-                <Image 
-                  src="/images/Maynilad Logo.png" 
-                  alt="Maynilad Logo" 
-                  width={32} 
-                  height={32} 
-                  className="object-contain"
-                />
-                <h2 className="text-xl font-heading font-bold tracking-wide text-white">MAYNILAD</h2>
-              </div>
-              <button 
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Panel */}
+      <div
+        className={`lg:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm bg-primary z-50 transform transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full p-8">
+          {/* Close Button */}
+          <div className="flex justify-between items-center mb-12">
+            <span className="font-heading font-bold text-lg text-white tracking-wide">MAYNILAD</span>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 text-white/70 hover:text-white transition-colors"
+              aria-label="Close menu"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Nav Links */}
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link, index) => (
+              <Link
+                key={link.href}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="close-sidebar-btn text-white hover:text-background-green transition-all duration-200 rounded-full p-2 hover:bg-primary-light"
-                aria-label="Close menu"
+                className="text-white/80 hover:text-white font-body text-lg py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-300"
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            
-            {/* Navigation Links */}
-            <div className="flex flex-col space-y-1 mt-4">
-              <Link 
-                href="/" 
-                className="py-4 px-4 rounded-lg font-body font-medium text-lg hover:bg-primary-light transition-all duration-200 flex items-center group" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="w-0 group-hover:w-2 h-5 bg-primary-accent rounded-full transition-all duration-300 mr-0 group-hover:mr-3"></span>
-                Home
+                {link.label}
               </Link>
-              <Link 
-                href="/about" 
-                className="py-4 px-4 rounded-lg font-body font-medium text-lg hover:bg-primary-light transition-all duration-200 flex items-center group" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="w-0 group-hover:w-2 h-5 bg-primary-accent rounded-full transition-all duration-300 mr-0 group-hover:mr-3"></span>
-                About
-              </Link>
-              <Link 
-                href="/activities" 
-                className="py-4 px-4 rounded-lg font-body font-medium text-lg hover:bg-primary-light transition-all duration-200 flex items-center group" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="w-0 group-hover:w-2 h-5 bg-primary-accent rounded-full transition-all duration-300 mr-0 group-hover:mr-3"></span>
-                Activities
-              </Link>
-              <Link 
-                href="/formation" 
-                className="py-4 px-4 rounded-lg font-body font-medium text-lg hover:bg-primary-light transition-all duration-200 flex items-center group" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="w-0 group-hover:w-2 h-5 bg-primary-accent rounded-full transition-all duration-300 mr-0 group-hover:mr-3"></span>
-                Formation
-              </Link>
-              <Link 
-                href="/staff" 
-                className="py-4 px-4 rounded-lg font-body font-medium text-lg hover:bg-primary-light transition-all duration-200 flex items-center group" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="w-0 group-hover:w-2 h-5 bg-primary-accent rounded-full transition-all duration-300 mr-0 group-hover:mr-3"></span>
-                Staff
-              </Link>
-              <Link 
-                href="/contact" 
-                className="py-4 px-4 rounded-lg font-body font-medium text-lg hover:bg-primary-light transition-all duration-200 flex items-center group" 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="w-0 group-hover:w-2 h-5 bg-primary-accent rounded-full transition-all duration-300 mr-0 group-hover:mr-3"></span>
-                Contact
-              </Link>
-            </div>
-            
-            {/* Theme toggle in sidebar */}
-            <div className="mt-auto pt-8 border-t border-primary-light">
-              <button 
-                className="flex items-center gap-3 py-3 px-4 rounded-lg hover:bg-primary-light transition-all duration-200 w-full"
-                onClick={toggleTheme}
-              >
-                {isDarkMode ? (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <span>Light Mode</span>
-                  </>
-                ) : (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                    <span>Dark Mode</span>
-                  </>
-                )}
-              </button>
-            </div>
+            ))}
+          </div>
+
+          {/* Bottom Section */}
+          <div className="mt-auto pt-8 border-t border-white/15">
+            <button
+              onClick={toggleTheme}
+              className="flex items-center gap-3 text-white/70 hover:text-white font-body py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-300 w-full"
+            >
+              {isDarkMode ? (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  <span>Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                  <span>Dark Mode</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>

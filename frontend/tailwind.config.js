@@ -9,28 +9,76 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0F3C3E', // Dark green from the reference image
+          DEFAULT: '#0F3C3E',
           light: '#1A5658',
           medium: '#15494B',
           dark: '#092728',
-          accent: '#2A7476', // Lighter green accent for highlights
+          darker: '#051516',
+          accent: '#2A7476',
         },
-        background: {
+        gold: {
+          DEFAULT: '#C9A84C',
+          light: '#E0C878',
+          dark: '#A68A3E',
+        },
+        surface: {
           DEFAULT: '#FFFFFF',
-          dark: '#F5F5F5',
-          green: '#E8F0F0', // Very light green for backgrounds
+          warm: '#FAFAF7',
+          muted: '#F5F3EF',
+          dark: '#F0EDE8',
         },
         text: {
-          DEFAULT: '#0F3C3E', // Using primary green for text
-          light: '#15494B',
-          white: '#FFFFFF',
-        }
+          DEFAULT: '#1A1A1A',
+          secondary: '#4A4A4A',
+          muted: '#7A7A7A',
+          inverse: '#FFFFFF',
+        },
       },
       fontFamily: {
-        sans: ['Montserrat', 'Roboto', 'sans-serif'],
-        serif: ['Georgia', 'Merriweather', 'serif'],
-        heading: ['Montserrat', 'sans-serif'],
-        body: ['poppins-v2', 'sans-serif'],
+        heading: ['"Playfair Display"', 'Georgia', 'serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'hero': ['clamp(2.5rem, 5vw, 4.5rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'section': ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'fade-up': 'fadeUp 0.8s ease-out forwards',
+        'fade-down': 'fadeDown 0.6s ease-out forwards',
+        'scale-in': 'scaleIn 0.6s ease-out forwards',
+        'slide-left': 'slideLeft 0.8s ease-out forwards',
+        'slide-right': 'slideRight 0.8s ease-out forwards',
+        'count-up': 'countUp 2s ease-out forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeDown: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        slideLeft: {
+          '0%': { opacity: '0', transform: 'translateX(40px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideRight: {
+          '0%': { opacity: '0', transform: 'translateX(-40px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
