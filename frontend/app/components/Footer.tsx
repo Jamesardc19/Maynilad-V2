@@ -24,11 +24,13 @@ export default function Footer() {
               <Image
                 src="/images/Maynilad Logo.png"
                 alt="Maynilad Logo"
-                width={36}
-                height={36}
-                className="object-contain brightness-0 invert"
+                width={38}
+                height={38}
+                className="object-contain transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="font-heading font-bold text-lg tracking-wide">
+              <span
+                className={`nav-logo-text font-heading font-bold text-xl tracking-wide transition-colors duration-500`}
+              >
                 MAYNILAD
               </span>
             </div>
