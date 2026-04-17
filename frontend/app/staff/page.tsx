@@ -1,98 +1,178 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import AnimatedSection from '../components/AnimatedSection';
 
-export default function Staff() {
+// Fr. Dennis Yu is featured separately in the Chaplaincy section
+const chaplain = {
+  name: 'Fr. Dennis Yu',
+  role: 'Chaplain',
+  description: 'Fr. Dennis Yu serves as the Chaplain of Maynilad University Center. His ministry is at the heart of our spiritual life — administering the sacraments, offering spiritual direction, leading recollections and retreats, and guiding students to discover God in the ordinary tasks and responsibilities of everyday life.',
+  image: '/images/staff/Dennis.png',
+};
+
+// Regular staff grid (Dennis Yu is in Chaplaincy section above, not here)
+const staffMembers = [
+  {
+    name: 'Arwin Vibar',
+    role: 'Director - UP Manila Associate Professor',
+    description: 'A distinguished faculty member from the University of the Philippines, bringing world-class academic expertise and a passion for intellectual formation.',
+    image: '/images/staff/Arwin.png',
+  },
+  {
+    name: 'Janjan Ramirez',
+    role: 'Vice Director - Economist',
+    description: 'An accomplished economist who helps students understand the social and economic dimensions of leadership, governance, and professional life.',
+    image: '/images/staff/Janjan.png',
+  },
+  {
+    name: 'Ariel de Castro',
+    role: 'Dual Tech Staff',
+    description: 'A Dual Tech specialist who bridges academic theory with practical skills, equipping students with technical competencies for the modern workforce.',
+    image: '/images/staff/Ariel.png',
+  },
+  {
+    name: 'Raymond Ng',
+    role: 'De La Salle University Assistant Professor Lecturer',
+    description: 'A faculty member from De La Salle University, contributing his expertise in education and leadership development to the Maynilad formation program.',
+    image: '/images/staff/Raymond.png',
+  },
+  {
+    name: 'Donnell Dimaano',
+    role: 'Digital Media',
+    description: 'A digital media professional who guides students in navigating the modern digital landscape with creativity, responsibility, and purpose.',
+    image: '/images/staff/Donnell.png',
+  },
+];
+
+export default function StaffPage() {
   return (
-    <main className="container-custom py-16">
-      <h1 className="text-4xl font-bold mb-8 text-primary">Our Staff</h1>
-      
-      <div className="space-y-12">
-        <section>
-          <h2 className="text-2xl font-semibold mb-6">Leadership Team</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Leadership Team Members */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-200"></div>
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-1">Dr. Maria Santos</h3>
-                <p className="text-primary font-medium mb-3">Director</p>
-                <p className="text-sm">Ph.D. in Educational Leadership with over 20 years of experience in academic administration and teaching.</p>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-200"></div>
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-1">Prof. Juan Reyes</h3>
-                <p className="text-primary font-medium mb-3">Academic Coordinator</p>
-                <p className="text-sm">Master's in Curriculum Development with expertise in designing innovative educational programs.</p>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-200"></div>
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-1">Ms. Ana Lim</h3>
-                <p className="text-primary font-medium mb-3">Student Affairs Head</p>
-                <p className="text-sm">Specializes in student counseling and holistic development programs for young adults.</p>
-              </div>
-            </div>
+    <main>
+      {/* ===== HERO ===== */}
+      <section className="relative py-24 md:py-32 bg-primary overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/about/hero.png" alt="Our Staff" fill className="object-cover opacity-20" />
+          <div className="absolute inset-0 bg-primary/75" />
+        </div>
+        <div className="container-custom relative z-10">
+          <AnimatedSection>
+            <p className="section-label text-gold-light mb-4">The People Behind Maynilad</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 max-w-3xl">
+              Our Staff
+            </h1>
+            <p className="text-white/80 font-body text-lg max-w-2xl">
+              Meet the dedicated professionals and mentors who guide, challenge, and inspire the students of Maynilad University Center every day.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ===== STAFF GRID ===== */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <AnimatedSection className="mb-12">
+            <p className="section-label">Meet the Team</p>
+            <h2 className="text-section font-heading font-bold text-primary">
+              Dedicated to Your Growth
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {staffMembers.map((member, index) => (
+              <AnimatedSection key={member.name} delay={index * 0.08}>
+                <div className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  {/* Photo */}
+                  <div className="relative h-64 bg-surface-muted overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="mb-4">
+                      <h3 className="font-heading font-bold text-primary text-xl mb-1">
+                        {member.name}
+                      </h3>
+                      <span className="inline-block bg-primary/8 text-primary font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                        {member.role}
+                      </span>
+                    </div>
+                    <p className="font-body text-gray-600 text-sm leading-relaxed flex-1">
+                      {member.description}
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-6">Faculty</h2>
-          <p className="mb-6">
-            Our faculty members are experts in their fields with a passion for teaching and mentoring students.
-            They bring a wealth of academic knowledge and real-world experience to the classroom.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Faculty Members */}
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-md mb-3"></div>
-              <h3 className="font-semibold">Dr. Carlos Mendoza</h3>
-              <p className="text-sm text-primary">Mathematics</p>
+        </div>
+      </section>
+
+      {/* ===== THE CHAPLAINCY ===== */}
+      <section className="py-20 bg-primary-dark">
+        <div className="container-custom">
+          <AnimatedSection className="mb-14 text-center">
+            <p className="section-label text-gold-light">Spiritual Guidance</p>
+            <h2 className="text-section font-heading font-bold text-white">The Chaplaincy</h2>
+            <p className="text-white/60 font-body max-w-2xl mx-auto mt-4 leading-relaxed">
+              The chaplaincy at Maynilad University Center is at the heart of our spiritual life. This includes administering the Sacraments, offering spiritual direction, organizing retreats and recollections, and teaching doctrine. The main spiritual emphasis revolves around discovering God in the ordinary — in our daily responsibilities, tasks, and relationships.
+            </p>
+          </AnimatedSection>
+
+          {/* Featured Chaplain Card */}
+          <AnimatedSection delay={0.15} className="max-w-md mx-auto">
+            <div className="group text-center">
+              {/* Photo */}
+              <div className="relative w-52 h-64 mx-auto mb-6 overflow-hidden rounded-xl border-2 border-gold/30 shadow-2xl">
+                <Image
+                  src={chaplain.image}
+                  alt={chaplain.name}
+                  fill
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              </div>
+
+              {/* Name & Title */}
+              <h3 className="font-heading font-bold text-white text-2xl mb-1">
+                {chaplain.name}
+              </h3>
+              {/* Divider line like in the reference */}
+              <div className="w-24 h-px bg-gold mx-auto my-3" />
+              <p className="font-body text-gold-light font-semibold text-sm uppercase tracking-widest mb-1">
+                {chaplain.role}
+              </p>
+              <p className="font-body text-white/50 text-xs uppercase tracking-wider mb-6">Priest</p>
+
+              <p className="text-white/70 font-body text-sm leading-relaxed max-w-sm mx-auto">
+                {chaplain.description}
+              </p>
             </div>
-            
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-md mb-3"></div>
-              <h3 className="font-semibold">Prof. Elena Cruz</h3>
-              <p className="text-sm text-primary">Literature</p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ===== CTA ===== */}
+      <section className="py-16 bg-surface-warm border-t border-gray-100">
+        <div className="container-custom">
+          <AnimatedSection className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-2">
+                Want to get to know us better?
+              </h2>
+              <p className="text-gray-500 font-body">Reach out — we'd be happy to talk.</p>
             </div>
-            
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-md mb-3"></div>
-              <h3 className="font-semibold">Dr. Ramon Torres</h3>
-              <p className="text-sm text-primary">Sciences</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-md mb-3"></div>
-              <h3 className="font-semibold">Prof. Sofia Garcia</h3>
-              <p className="text-sm text-primary">History</p>
-            </div>
-          </div>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-6">Support Staff</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-5 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">Administrative Team</h3>
-              <p>Our administrative staff ensures smooth operations of all university functions, from enrollment to record-keeping.</p>
-            </div>
-            
-            <div className="bg-white p-5 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">Guidance Counselors</h3>
-              <p>Professional counselors provide academic, career, and personal guidance to help students navigate their university journey.</p>
-            </div>
-            
-            <div className="bg-white p-5 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">Facilities Management</h3>
-              <p>Dedicated staff who maintain our campus facilities to provide a conducive environment for learning and development.</p>
-            </div>
-          </div>
-        </section>
-      </div>
+            <Link href="/contact" className="btn-primary flex-shrink-0">
+              Get in Touch
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
     </main>
   );
 }

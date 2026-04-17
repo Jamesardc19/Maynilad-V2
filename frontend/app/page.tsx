@@ -149,96 +149,47 @@ export default function Home() {
       </section>
 
       {/* ===== LIFE AT MAYNILAD - Photo Grid ===== */}
-      <section className="section-padding bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-10">
             <p className="section-label">Experience</p>
             <h2 className="text-section font-heading font-bold text-primary">
               Life at Maynilad
             </h2>
+            <p className="text-text-muted font-body mt-3 max-w-xl mx-auto text-sm">
+              Click on any photo to explore that part of Maynilad life.
+            </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {/* Photo Grid */}
-            <AnimatedSection delay={0.1} className="col-span-2 md:col-span-2 row-span-2">
-              <div className="relative h-full min-h-[300px] md:min-h-[400px] rounded-lg overflow-hidden group">
-                <Image
-                  src="/images/life/study.png"
-                  alt="Students studying together"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-white font-body font-semibold">Academic Excellence</p>
-                  <p className="text-white/70 font-body text-sm">Study groups and academic support</p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="relative aspect-square rounded-lg overflow-hidden group">
-                <Image
-                  src="/images/activities/sports.png"
-                  alt="Sports activities"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-white font-body font-semibold">Sports Activities</p>
-                  <p className="text-white/70 font-body text-sm">Sports activities and recreation</p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <div className="relative aspect-square rounded-lg overflow-hidden group">
-                <Image
-                  src="/images/activities/cultural.png"
-                  alt="Cultural activities"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-white font-body font-semibold">Cultural Activities</p>
-                  <p className="text-white/70 font-body text-sm">Cultural activities and recreation</p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.15}>
-              <div className="relative aspect-square rounded-lg overflow-hidden group">
-                <Image
-                  src="/images/formation/bernie.png"
-                  alt="Formation and mentoring"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-white font-body font-semibold">Formation and Mentoring</p>
-                  <p className="text-white/70 font-body text-sm">Formation and mentoring activities</p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.25} className="col-span-2">
-              <div className="relative h-full min-h-[150px] md:min-h-[200px] rounded-lg overflow-hidden group">
-                <Image
-                  src="/images/life/community.png"
-                  alt="Community outreach"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-white font-body font-semibold">Community & Service</p>
-                  <p className="text-white/70 font-body text-sm">Giving back and making an impact</p>
-                </div>
-              </div>
-            </AnimatedSection>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {[
+              { src: '/images/life/study.png', label: 'Academic Life', sub: 'Study & growth', href: '/about', delay: 0.05 },
+              { src: '/images/activities/sports.png', label: 'Sports', sub: 'Basketball & more', href: '/activities', delay: 0.1 },
+              { src: '/images/activities/cultural.png', label: 'Cultural Events', sub: 'Music & celebrations', href: '/activities', delay: 0.15 },
+              { src: '/images/hero/HEADER.png', label: 'Formation', sub: 'Mentoring & values', href: '/formation', delay: 0.2 },
+              { src: '/images/life/community.png', label: 'Community', sub: 'Outreach & service', href: '/activities', delay: 0.25 },
+            ].map((item, i) => (
+              <AnimatedSection key={i} delay={item.delay} className={i === 0 ? 'col-span-2 md:col-span-1' : ''}>
+                <Link href={item.href} className="block relative aspect-[4/3] rounded-lg overflow-hidden group">
+                  <Image
+                    src={item.src}
+                    alt={item.label}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white font-heading font-semibold text-sm">{item.label}</p>
+                    <p className="text-white/70 font-body text-xs mt-0.5">{item.sub}</p>
+                  </div>
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>

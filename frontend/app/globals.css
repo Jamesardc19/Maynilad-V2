@@ -1,6 +1,4 @@
-/* This is a Tailwind CSS file - @tailwind directives are processed during build */
-/* Add this instead */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -31,7 +29,7 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
     color: var(--text-primary);
     background: var(--surface);
     line-height: 1.6;
@@ -43,14 +41,42 @@
   h4,
   h5,
   h6 {
-    font-family: sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-weight: 700;
     line-height: 1.2;
   }
 
   ::selection {
-    background-color: rgba(15, 60, 62, 0.15);
-    color: var(--primary);
+    background-color: var(--primary);
+    color: #ffffff;
+  }
+
+  /* ===== MOBILE TOUCH IMPROVEMENTS ===== */
+  /* Remove 300ms tap delay on all elements */
+  * {
+    touch-action: manipulation;
+  }
+
+  /* Remove tap highlight on mobile browsers */
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  label {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure images don't overflow on small screens */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent text size adjustment on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 }
 
@@ -62,8 +88,8 @@
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+    padding-right: max(1.25rem, env(safe-area-inset-right));
   }
 
   @media (min-width: 640px) {
@@ -108,20 +134,28 @@
     background-color: var(--primary);
     color: white;
     padding: 0.875rem 2rem;
+    min-height: 44px;
     border-radius: 0.25rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: all var(--transition);
     border: 2px solid transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .btn-primary:hover {
     background-color: var(--primary-light);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(15, 60, 62, 0.25);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
   }
 
   .btn-secondary {
@@ -132,20 +166,28 @@
     background-color: transparent;
     color: white;
     padding: 0.875rem 2rem;
+    min-height: 44px;
     border-radius: 0.25rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: all var(--transition);
     border: 2px solid rgba(255, 255, 255, 0.5);
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border-color: white;
     transform: translateY(-2px);
+  }
+
+  .btn-secondary:active {
+    transform: scale(0.97);
   }
 
   .btn-outline {
@@ -333,69 +375,4 @@
 
 .navbar-scrolled .nav-logo-text {
   color: var(--primary);
-}
-
-/* ===== DARK THEME ===== */
-.dark-theme {
-  --surface: #0A1F20;
-  --surface-warm: #0F2A2B;
-  --surface-muted: #142E30;
-  --text-primary: #F0F0F0;
-  --text-secondary: #C0C0C0;
-  --text-muted: #8A8A8A;
-}
-
-.dark-theme body {
-  background: var(--surface);
-  color: var(--text-primary);
-}
-
-.dark-theme .card {
-  background: var(--surface-muted);
-}
-
-.dark-theme .navbar-scrolled {
-  background: rgba(10, 31, 32, 0.95);
-  backdrop-filter: blur(12px);
-}
-
-.dark-theme .glass {
-  background: rgba(10, 31, 32, 0.85);
-  backdrop-filter: blur(12px);
-}
-
-.dark-theme .bg-white {
-  background-color: var(--surface-warm);
-}
-
-.dark-theme .bg-surface-warm {
-  background-color: var(--surface-warm);
-}
-
-.dark-theme .bg-surface-muted {
-  background-color: var(--surface-muted);
-}
-
-.dark-theme .text-text {
-  color: var(--text-primary);
-}
-
-.dark-theme .text-text-secondary {
-  color: var(--text-secondary);
-}
-
-.dark-theme footer {
-  background-color: #051516;
-}
-
-.dark-theme input,
-.dark-theme textarea,
-.dark-theme select {
-  background-color: var(--surface-muted);
-  color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.dark-theme .section-label {
-  color: var(--gold-light);
 }
