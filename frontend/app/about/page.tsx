@@ -47,14 +47,14 @@ export default function AboutPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative py-24 md:py-32 bg-primary overflow-hidden">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-24 bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/about/hero.png" alt="About Maynilad" fill className="object-cover opacity-30" />
           <div className="absolute inset-0 bg-primary/70" />
         </div>
         <div className="container-custom relative z-10">
           <AnimatedSection>
-            <p className="section-label text-gold-light mb-4">Who We Are</p>
+            <p className="section-label text-white/90 mb-4">Who We Are</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 max-w-3xl">
               About Maynilad University Center
             </h1>
@@ -71,8 +71,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedSection>
               <div className="bg-primary text-white p-10 rounded-xl h-full">
-                <div className="w-12 h-12 border-2 border-gold rounded-lg flex items-center justify-center mb-6">
-                  <span className="text-gold font-heading font-bold text-lg">M</span>
+                <div className="w-12 h-12 border-2 border-white/30 rounded-lg flex items-center justify-center mb-6">
+                  <span className="text-white font-heading font-bold text-lg">M</span>
                 </div>
                 <h2 className="text-2xl font-heading font-bold mb-4 tracking-wide">Our Mission</h2>
                 <p className="font-body text-white/80 leading-relaxed">

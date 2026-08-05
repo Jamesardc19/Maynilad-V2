@@ -8,7 +8,7 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
   const isHome = pathname === '/';
 
   return (
-    <main className={`flex-grow ${!isHome ? 'pt-[68px]' : ''}`}>
+    <main className="flex-grow">
       {children}
     </main>
   );

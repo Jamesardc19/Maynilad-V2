@@ -13,7 +13,7 @@ const stats = [
 const activities = [
   {
     title: 'Leadership & Academic Development',
-    description: 'Seminars, coaching sessions, and workshops that develop professional competence and intellectual growth.',
+    description: 'Seminars, coaching, and workshops that build professional competence and intellectual excellence.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -23,7 +23,7 @@ const activities = [
   },
   {
     title: 'Cultural & Outdoors',
-    description: 'Pilgrimages, recollections, hiking, and cultural immersions that broaden perspectives and build character.',
+    description: 'Hikes, heritage tours, and cultural immersions that broaden perspective and build character.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -32,7 +32,7 @@ const activities = [
   },
   {
     title: 'Spiritual Formation',
-    description: 'Guided retreats, mentoring on faith and values, and opportunities for spiritual reflection and personal growth.',
+    description: 'Pilgrimages, guided retreats, and mentoring that deepen faith and nurture personal growth.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -76,7 +76,7 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="relative z-10 container-custom text-center max-w-4xl mx-auto">
-          <p className="section-label text-gold-light animate-fade-in mb-6">
+          <p className="section-label text-white/90 animate-fade-in mb-6">
             Maynilad University Center
           </p>
           <h1 className="text-hero font-heading font-bold text-white mb-6 animate-fade-up text-balance">
@@ -141,7 +141,7 @@ export default function Home() {
                   />
                 </div>
                 {/* Decorative accent */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-gold/30 rounded-lg -z-10" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-primary/20 rounded-lg -z-10" />
               </div>
             </AnimatedSection>
           </div>
@@ -149,9 +149,9 @@ export default function Home() {
       </section>
 
       {/* ===== LIFE AT MAYNILAD - Photo Grid ===== */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-surface-warm">
         <div className="container-custom">
-          <AnimatedSection className="text-center mb-10">
+          <AnimatedSection className="text-center mb-12">
             <p className="section-label">Experience</p>
             <h2 className="text-section font-heading font-bold text-primary">
               Life at Maynilad
@@ -161,35 +161,42 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[
-              { src: '/images/life/study.png', label: 'Academic Life', sub: 'Study & growth', href: '/about', delay: 0.05 },
-              { src: '/images/activities/sports.png', label: 'Sports', sub: 'Basketball & more', href: '/activities', delay: 0.1 },
-              { src: '/images/activities/cultural.png', label: 'Cultural Events', sub: 'Music & celebrations', href: '/activities', delay: 0.15 },
-              { src: '/images/hero/HEADER.png', label: 'Formation', sub: 'Mentoring & values', href: '/formation', delay: 0.2 },
-              { src: '/images/life/community.png', label: 'Community', sub: 'Outreach & service', href: '/activities', delay: 0.25 },
-            ].map((item, i) => (
-              <AnimatedSection key={i} delay={item.delay} className={i === 0 ? 'col-span-2 md:col-span-1' : ''}>
-                <Link href={item.href} className="block relative aspect-[4/3] rounded-lg overflow-hidden group">
-                  <Image
-                    src={item.src}
-                    alt={item.label}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <p className="text-white font-heading font-semibold text-sm">{item.label}</p>
-                    <p className="text-white/70 font-body text-xs mt-0.5">{item.sub}</p>
-                  </div>
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
+              { src: '/images/activities/academic.png', label: 'Academic Life', href: '/about', delay: 0.05 },
+              { src: '/images/activities/sports.png', label: 'Sports', href: '/activities', delay: 0.1 },
+              { src: '/images/activities/excursion.png', label: 'Excursions', href: '/activities', delay: 0.15 },
+              { src: '/images/activities/formation.PNG', label: 'Formation', href: '/formation', delay: 0.2 },
+              { src: '/images/activities/outreach.png', label: 'Outreach', href: '/activities', delay: 0.25 },
+            ].map((item, i) => {
+              let gridClass = 'lg:col-span-2';
+              if (i === 3) gridClass = 'lg:col-span-2 lg:col-start-2';
+              if (i === 4) gridClass = 'sm:col-span-2 sm:max-w-md sm:mx-auto lg:max-w-none lg:mx-0 lg:col-span-2';
+
+              return (
+                <AnimatedSection key={i} delay={item.delay} className={gridClass}>
+                  <Link href={item.href} className="block relative aspect-[4/3] rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500">
+                    <Image
+                      src={item.src}
+                      alt={item.label}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7">
+                      <p className="text-white font-heading font-extrabold text-2xl sm:text-3xl lg:text-3xl drop-shadow-md tracking-wide">
+                        {item.label}
+                      </p>
+                    </div>
+                    <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110">
+                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -198,7 +205,7 @@ export default function Home() {
       <section className="section-padding bg-primary">
         <div className="container-custom">
           <AnimatedSection className="text-center mb-16">
-            <p className="section-label">What We Offer</p>
+            <p className="section-label text-white/90">What We Offer</p>
             <h2 className="text-section font-heading font-bold text-white mb-4">
               Programs & Activities
             </h2>
@@ -211,7 +218,7 @@ export default function Home() {
             {activities.map((activity, index) => (
               <AnimatedSection key={activity.title} delay={index * 0.1}>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-8 hover:bg-white/10 transition-all duration-500 group h-full">
-                  <div className="text-gold mb-6 transition-transform duration-300 group-hover:scale-110">
+                  <div className="text-white mb-6 transition-transform duration-300 group-hover:scale-110">
                     {activity.icon}
                   </div>
                   <h3 className="text-lg font-heading font-bold text-white mb-3">
@@ -233,83 +240,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== UPCOMING EVENTS ===== */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <AnimatedSection>
-              <p className="section-label">Calendar</p>
-              <h2 className="text-section font-heading font-bold text-primary mb-8">
-                Upcoming Events
-              </h2>
-              <div className="space-y-4">
-                {events.map((event, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-6 p-4 rounded-lg hover:bg-white transition-all duration-300 group cursor-pointer"
-                  >
-                    <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-lg flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
-                      <span className="text-2xl font-heading font-bold text-white">{event.day}</span>
-                    </div>
-                    <div>
-                      <h3 className="font-body font-semibold text-text tracking-wide text-sm uppercase">
-                        {event.title}
-                      </h3>
-                      <p className="text-text-muted font-body text-sm mt-1">{event.location}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                <Image
-                  src="/images/activities/maynilad.png"
-                  alt="Maynilad events"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <p className="text-gold-light font-body text-xs uppercase tracking-widest mb-2">Join Us</p>
-                  <p className="text-white font-heading text-2xl font-bold">
-                    Be Part of the Maynilad Community
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
       {/* ===== CTA SECTION ===== */}
-      <section className="py-20 md:py-28 bg-primary-dark relative overflow-hidden">
+      <section className="py-20 md:py-28 bg-surface-warm relative overflow-hidden">
         {/* Decorative Background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gold rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-accent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-dark rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
         </div>
 
         <div className="container-custom relative z-10 text-center">
           <AnimatedSection>
-            <p className="section-label text-gold-light mb-4">Join Maynilad</p>
-            <h2 className="text-section font-heading font-bold text-white mb-6 max-w-3xl mx-auto text-balance">
+            <p className="section-label mb-4">Join Maynilad</p>
+            <h2 className="text-section font-heading font-bold text-primary mb-6 max-w-3xl mx-auto text-balance">
               Take the first step — join a community of driven young men committed to excellence.
             </h2>
-            <p className="text-white/60 font-body max-w-xl mx-auto mb-10">
+            <p className="text-text-secondary font-body max-w-xl mx-auto mb-10">
               Are you ready to challenge yourself academically, morally, and spiritually? Scan the QR code or reach out to us today.
             </p>
 
             <div className="flex flex-col items-center gap-8">
-              <div className="w-40 h-40 bg-white p-3 rounded-lg shadow-lg">
+              <div className="w-44 h-44 bg-white p-3 rounded-2xl shadow-xl border border-gray-200/80">
                 <img
                   src="/images/Maynilad QR.jpeg"
                   alt="Maynilad QR Code"
-                  className="w-full h-full object-cover rounded"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <Link href="/contact" className="btn-primary bg-gold hover:bg-gold-dark text-primary-dark">
+              <Link href="/contact" className="btn-primary">
                 Contact Us
               </Link>
             </div>

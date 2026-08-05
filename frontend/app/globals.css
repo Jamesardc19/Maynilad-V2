@@ -11,8 +11,8 @@
     --primary-light: #1A5658;
     --primary-dark: #092728;
     --primary-accent: #2A7476;
-    --gold: #C9A84C;
-    --gold-light: #E0C878;
+    --gold: #0F3C3E;
+    --gold-light: #1A5658;
     --surface: #FFFFFF;
     --surface-warm: #FAFAF7;
     --surface-muted: #F5F3EF;
@@ -282,14 +282,14 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--primary);
     margin-bottom: 1rem;
   }
 
   .section-divider {
     width: 3rem;
     height: 2px;
-    background: var(--gold);
+    background: var(--primary);
     margin-top: 1.5rem;
   }
 

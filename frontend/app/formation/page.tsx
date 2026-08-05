@@ -51,7 +51,6 @@ const leadershipSkills = [
 
 const mentoringSteps = [
   'Regular one-on-one sessions with experienced mentors',
-  'Personalized guidance on academic and career planning',
   'Support for personal development and life skills',
   'Assistance in setting and achieving goals',
   'Connection to resources and opportunities in your field',
@@ -61,14 +60,14 @@ export default function FormationPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative py-24 md:py-32 bg-primary overflow-hidden">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-24 bg-primary overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/formation/hero.png" alt="Formation" fill className="object-cover opacity-25" />
+          <Image src="/images/formation/bernie.png" alt="Formation" fill className="object-cover opacity-25" />
           <div className="absolute inset-0 bg-primary/70" />
         </div>
         <div className="container-custom relative z-10">
           <AnimatedSection>
-            <p className="section-label text-gold-light mb-4">Holistic Growth</p>
+            <p className="section-label text-white/90 mb-4">Holistic Growth</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 max-w-3xl">
               Formation Program
             </h1>
@@ -114,7 +113,7 @@ export default function FormationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
-                <Image src="/images/formation/hero.png" alt="Mentoring" fill className="object-cover" />
+                <Image src="/images/formation/mentor.png" alt="Mentoring" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-gold-light font-body text-xs uppercase tracking-widest mb-1">Personal Growth</p>
@@ -149,7 +148,7 @@ export default function FormationPage() {
       <section className="py-20 bg-primary">
         <div className="container-custom">
           <AnimatedSection className="text-center mb-14">
-            <p className="section-label text-gold-light">Skills & Competencies</p>
+            <p className="section-label text-white/90">Skills & Competencies</p>
             <h2 className="text-section font-heading font-bold text-white mb-4">Leadership Development</h2>
             <p className="text-white/70 font-body max-w-xl mx-auto">
               We prepare students to be future leaders through workshops, seminars, and practical experiences.
