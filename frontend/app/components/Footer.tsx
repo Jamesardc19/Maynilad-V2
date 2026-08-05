@@ -86,7 +86,7 @@ export default function Footer() {
                 corner Taft Avenue, Manila 1004
               </p>
               <p>0917 146 8055</p>
-              <p>info@maynilad.edu</p>
+              <p>mcfi.maynilad@gmail.com</p>
             </div>
           </div>
 

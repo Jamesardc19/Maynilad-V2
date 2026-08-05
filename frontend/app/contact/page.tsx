@@ -31,7 +31,7 @@ const contactInfo = [
       </svg>
     ),
     label: 'Email',
-    lines: ['info@maynilad.edu'],
+    lines: ['mcfi.maynilad@gmail.com'],
   },
   {
     icon: (
