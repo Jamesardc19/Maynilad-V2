@@ -115,24 +115,32 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/about" className="btn-secondary w-full sm:w-auto">
+            <Link
+              href="/about"
+              className="bg-white text-primary hover:bg-white/95 font-heading font-bold text-sm uppercase tracking-wider px-8 py-3.5 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 w-full sm:w-auto text-center"
+            >
               Discover Maynilad
             </Link>
-            <Link href="/contact" className="btn-outline w-full sm:w-auto">
+            <Link
+              href="/contact"
+              className="border-2 border-white/80 text-white hover:bg-white hover:text-primary font-heading font-bold text-sm uppercase tracking-wider px-8 py-3.5 rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-0.5 w-full sm:w-auto text-center"
+            >
               Get in Touch
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-          <svg className="w-6 h-6 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer">
+          <a href="#stats-section" aria-label="Scroll down to content">
+            <svg className="w-6 h-6 text-white/70 hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
         </div>
       </section>
 
       {/* ===== STATS SECTION ===== */}
-      <section className="bg-primary py-16 md:py-20">
+      <section id="stats-section" className="bg-primary py-16 md:py-20">
         <div className="container-custom">
           <StatsCounter stats={stats} />
         </div>
