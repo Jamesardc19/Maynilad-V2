@@ -131,17 +131,13 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/hero/UNIV.png"
-                    alt="Students at Maynilad University Center"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Decorative accent */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-primary/20 rounded-lg -z-10" />
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl border border-gray-100/80">
+                <Image
+                  src="/images/hero/UNIV.png"
+                  alt="Students at Maynilad University Center"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </AnimatedSection>
           </div>
