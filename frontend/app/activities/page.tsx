@@ -13,7 +13,7 @@ const activityCards = [
   {
     title: 'Excursions',
     description: 'Hiking, Camping, heritage visits, and outdoor immersions that broaden perspective and build camaraderie.',
-    image: '/images/activities/cultural.png',
+    image: '/images/activities/excursion.png',
     tag: 'Culture',
   },
   {
@@ -25,7 +25,7 @@ const activityCards = [
   {
     title: 'Spiritual Guidance',
     description: 'Formative talks, spiritual direction, and the sacraments that deepen faith and personal integrity.',
-    image: '/images/hero/HEADER.png',
+    image: '/images/hero/spiritual.png',
     tag: 'Formation',
   },
 ];
