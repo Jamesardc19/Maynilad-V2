@@ -25,7 +25,7 @@ const activityCards = [
   {
     title: 'Spiritual Guidance',
     description: 'Formative talks, spiritual direction, and the sacraments that deepen faith and personal integrity.',
-    image: '/images/hero/spiritual.png',
+    image: '/images/activities/spiritual.png',
     tag: 'Formation',
   },
 ];
